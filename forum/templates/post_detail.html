@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+ 
+{% block content %}  
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" >{{object.author}}</a>
+                <small class="text-muted">{{object.date_posted}}</small>
+                <small class="text-muted">|| Category: {{post.category}}</small>
+                
+            </div>
+            <h2><a class="article-title" >{{object.title}}</a></h2>
+            <p class="article-content">{{object.body}}</p>
+        </div>
+    </article>
+
+    {% if user.is_authenticated %}
+    <div class="container-section">
+        <p> <a href="{% url 'add_comment' object.pk %}">ADD COMMENT</a>
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="container-section">
+        <p>Comment Section</p>
+        {% if not object.comments.all %}
+            This post doesn't have any comments...
+        {% else %}
+            {% for comment in object.comments.all %}
+                <article class="media content-section">
+                    <div class="media-body" >
+                        <div class="article-metadata">
+                            <small class="text-muted">{{comment.date_added}}</small>
+                        </div>
+                        
+                        <p class="content">{{comment.Text}}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+asgiref==3.3.4
+certifi==2020.12.5
+click==7.1.2
+Django==3.2.1
+django-crispy-forms==1.11.2
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1612898609989/work
+nltk @ file:///home/conda/feedstock_root/build_artifacts/nltk_1618932666659/work
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1616933195747/work
+pandas==1.2.4
+python-dateutil==2.8.1
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+regex @ file:///Users/runner/miniforge3/conda-bld/regex_1617644464143/work
+scikit-learn @ file:///Users/runner/miniforge3/conda-bld/scikit-learn_1619628628051/work
+scipy @ file:///Users/runner/miniforge3/conda-bld/scipy_1619562045896/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1590081179328/work
+sqlparse==0.4.1
+threadpoolctl @ file:///tmp/tmp79xdzxkt/threadpoolctl-2.1.0-py3-none-any.whl
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1617680194207/work
+typing-extensions==3.10.0.0

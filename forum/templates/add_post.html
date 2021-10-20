@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <div class="container-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"> Type your Post </legend>
+                    {{ form | crispy}}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" >Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        <script>
+            var name = "{{user.id}}";
+            document.getElementById("usernow").value
+                = name;
+
+        </script>
+    {% else %}
+    <p>LogIn to add post</p>
+    {% endif %}
+
+{% endblock content %}

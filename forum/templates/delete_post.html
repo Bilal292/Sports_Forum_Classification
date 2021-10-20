@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" >{{object.author}}</a>
+                    <small class="text-muted">{{object.date_posted}}</small>
+                    <small class="text-muted">|| Category: {{post.category}}</small>
+                    
+                </div>
+                <h2><a class="article-title" >{{object.title}}</a></h2>
+                <p class="article-content">{{object.body}}</p>
+            </div>
+        </article>
+        <div class="container-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"> Are You sure you want to Delete this Post </legend>
+                    
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" >DELETE</button>
+                </div>
+            </form>
+        </div>
+    {% else %}
+    <p>You cant delete this</p>
+    {% endif %}
+    <div class="container-section">
+        <p>Comment Section</p>
+        {% if not object.comments.all %}
+            This post doesn't have any comments...
+        {% else %}
+            {% for comment in object.comments.all %}
+                <article class="media content-section">
+                    <div class="media-body" >
+                        <div class="article-metadata">
+                            <small class="text-muted">{{comment.date_added}}</small>
+                        </div>
+                        
+                        <p class="content">{{comment.Text}}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock content %}
